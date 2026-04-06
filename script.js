@@ -244,21 +244,6 @@ const portfolioData = {
       link: "https://github.com/rahullynel/ai-buildup"
     }
   ],
-  blogHome: "https://medium.com/",
-  blogPosts: [
-    {
-      title: "How I Approach Reliable Platform Engineering",
-      summary: "A practical look at reducing operational toil while improving deployment safety and reliability.",
-      date: "Add date",
-      url: "https://example.com/blog-post-1"
-    },
-    {
-      title: "Kubernetes Observability: What Actually Matters",
-      summary: "Key signals and dashboards I rely on for production incident response and service health.",
-      date: "Add date",
-      url: "https://example.com/blog-post-2"
-    }
-  ],
   certifications: [
     {
       name: "CKA: Certified Kubernetes Administrator",
@@ -359,8 +344,6 @@ const skillLogos = document.getElementById("skill-logos");
 const experienceGrid = document.getElementById("experience-grid");
 const educationGrid = document.getElementById("education-grid");
 const projectsGrid = document.getElementById("projects-grid");
-const blogsGrid = document.getElementById("blogs-grid");
-const blogHomeLink = document.getElementById("blog-home-link");
 const aiFocusGrid = document.getElementById("ai-focus-grid");
 const learningList = document.getElementById("learning-list");
 const certGrid = document.getElementById("cert-grid");
@@ -529,30 +512,6 @@ portfolioData.projects.forEach((project) => {
   projectsGrid.appendChild(card);
 });
 
-portfolioData.blogPosts.forEach((post) => {
-  const card = document.createElement("article");
-  card.className = "card";
-
-  const title = document.createElement("h3");
-  title.textContent = post.title;
-
-  const date = document.createElement("p");
-  date.className = "meta";
-  date.textContent = post.date;
-
-  const summary = document.createElement("p");
-  summary.textContent = post.summary;
-
-  const link = document.createElement("a");
-  link.className = "text-link repo-link";
-  link.href = post.url;
-  link.target = "_blank";
-  link.rel = "noopener";
-  link.textContent = "Read Blog";
-
-  card.append(title, date, summary, link);
-  blogsGrid.appendChild(card);
-});
 
 portfolioData.aiFocus.forEach((topic) => {
   const card = document.createElement("article");
@@ -626,10 +585,6 @@ githubInlineLink.rel = "noopener";
 credlyLink.href = portfolioData.credlyProfile;
 credlyLink.target = "_blank";
 credlyLink.rel = "noopener";
-
-blogHomeLink.href = portfolioData.blogHome;
-blogHomeLink.target = "_blank";
-blogHomeLink.rel = "noopener";
 
 socialGithub.href = portfolioData.githubProfile;
 socialGithub.target = "_blank";
