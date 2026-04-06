@@ -90,6 +90,17 @@ body {
   gap: 14px;
 }
 
+.nav-toggle {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(9, 21, 33, 0.8);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
@@ -425,9 +436,38 @@ footer {
 @media (max-width: 740px) {
   .site-header {
     padding: 12px 4vw;
-    gap: 10px;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-size: 1.25rem;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 6px;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 8px 2px;
+    font-size: 0.98rem;
   }
 
   .two-col,
@@ -436,6 +476,31 @@ footer {
   .four-col,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 4px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 10vw, 2.9rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    gap: 10px;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .panel {
+    padding: 18px;
   }
 
   main {

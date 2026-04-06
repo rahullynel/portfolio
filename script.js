@@ -321,6 +321,8 @@ const credlyLink = document.getElementById("credly-link");
 const socialGithub = document.getElementById("social-github");
 const socialLinkedIn = document.getElementById("social-linkedin");
 const socialCredly = document.getElementById("social-credly");
+const navToggle = document.getElementById("nav-toggle");
+const siteNav = document.getElementById("site-nav");
 
 aboutText.textContent = portfolioData.summary;
 
@@ -528,3 +530,19 @@ document.querySelectorAll(".reveal").forEach((el) => {
   const delay = Number(el.getAttribute("data-delay") || 0);
   el.style.setProperty("--delay", `${delay}ms`);
 });
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.textContent = isOpen ? "Close" : "Menu";
+  });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.textContent = "Menu";
+    });
+  });
+}
