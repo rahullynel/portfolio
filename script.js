@@ -1,8 +1,6 @@
 const portfolioData = {
   name: "Rahul Lynel D'Souza",
   role: "Senior DevOps / Site Reliability Engineer",
-  lookingFor:
-    "Open to Senior DevOps, SRE, and Platform Engineering roles focused on reliability, automation, and cloud-scale operations.",
   summary:
     "DevOps and Site Reliability Engineer with close to 9 years of experience across cloud infrastructure, platform engineering, CI/CD, and production operations. I focus on building reliable systems, reducing operational friction, and improving delivery speed for engineering teams. I am currently deepening my understanding of AI and MLOps concepts from a platform and reliability perspective.",
   quickFacts: [
@@ -33,12 +31,6 @@ const portfolioData = {
       label: "MTTR Improvement",
       note: "Reduced incident recovery time through observability and alerting"
     }
-  ],
-  selectedOutcomes: [
-    "Reduced MTTR by 35% through stronger observability and incident workflows.",
-    "Improved platform performance by 25% through Linux tuning and tracing.",
-    "Reduced infrastructure cost and overhead by 78% through VMware to KVM migration.",
-    "Supported CI/CD and platform operations for 75+ engineers across 4 business units."
   ],
   credlyProfile: "https://www.credly.com/users/rahullynel/badges#credly",
   githubProfile: "https://github.com/rahullynel",
@@ -123,7 +115,6 @@ const portfolioData = {
       title: "DevOps Engineer",
       company: "Core42, Abu Dhabi",
       duration: "Jan 2026 - Present",
-      tech: ["Azure", "GitLab", "Terraform", "Ansible", "Kubernetes", "Prometheus"],
       highlights: [
         "Own and operate Azure environments supporting 45+ production workloads across 2 regions, ensuring high availability and production stability.",
         "Engineer and optimize CI/CD pipelines (GitLab) used by 75+ engineers across 4 business units.",
@@ -142,7 +133,6 @@ const portfolioData = {
       title: "Senior Site Reliability Engineer - DevOps",
       company: "Akamai Technologies",
       duration: "Jan 2022 - Dec 2025",
-      tech: ["Kubernetes", "Azure DevOps", "GitLab", "Prometheus", "Grafana", "OpenTelemetry"],
       highlights: [
         "Architected and operated high-availability distributed infrastructure supporting global services, maintaining 99.9%+ uptime.",
         "Operated and supported Kubernetes clusters (15+ nodes) running 40+ services.",
@@ -160,7 +150,6 @@ const portfolioData = {
       title: "Infrastructure Engineer",
       company: "VMware Software Limited (now Broadcom)",
       duration: "Jul 2017 - Nov 2021",
-      tech: ["VMware", "Terraform", "Ansible", "GitLab", "Jenkins", "vROPS"],
       highlights: [
         "Promoted from Graduate to Technical Lead in 2 years for leading VMware deployments at enterprise clients.",
         "Automated VM deployments with Terraform and Ansible, reducing manual effort and improving consistency.",
@@ -192,7 +181,6 @@ const portfolioData = {
       title: "devops-homelab-platform",
       description:
         "Reusable local Kubernetes platform lab using Kind for platform engineering practice, including ingress, Argo CD, service mesh, CNI experimentation, and repeatable environment setup.",
-      outcome: "Outcome: established a repeatable local platform lab for rapid testing and learning.",
       tech: ["Kubernetes", "Kind", "Argo CD", "Shell"],
       link: "https://github.com/rahullynel/devops-homelab-platform"
     },
@@ -200,7 +188,6 @@ const portfolioData = {
       title: "otel-collector-k8s",
       description:
         "Kubernetes observability demo using OpenTelemetry Collector to receive, process, and export telemetry with a minimal but production-relevant pipeline.",
-      outcome: "Outcome: created a clear baseline pipeline for metrics and traces in Kubernetes.",
       tech: ["OpenTelemetry", "Kubernetes", "Observability"],
       link: "https://github.com/rahullynel/otel-collector-k8s"
     },
@@ -208,7 +195,6 @@ const portfolioData = {
       title: "warranty-scripts",
       description:
         "Docker-based utility that fetches and normalizes hardware warranty and support data from infrastructure inventory into structured outputs.",
-      outcome: "Outcome: reduced manual asset warranty checks with structured output automation.",
       tech: ["Python", "Docker", "Automation"],
       link: "https://github.com/rahullynel/warranty-scripts"
     },
@@ -216,7 +202,6 @@ const portfolioData = {
       title: "linux-ops-toolkit",
       description:
         "Practical Linux operations toolkit containing scripts and day-to-day system operations helpers for infrastructure reliability work.",
-      outcome: "Outcome: improved repeatability for common Linux operations and troubleshooting tasks.",
       tech: ["Linux", "Shell", "Operations"],
       link: "https://github.com/rahullynel/linux-ops-toolkit"
     },
@@ -224,7 +209,6 @@ const portfolioData = {
       title: "ai-buildup",
       description:
         "Active learning repository where I capture AI and LLM experiments as I build practical understanding of AI platform concepts.",
-      outcome: "Outcome: maintained a structured learning trail for applied AI and LLM platform concepts.",
       tech: ["Python", "AI", "Learning"],
       link: "https://github.com/rahullynel/ai-buildup"
     }
@@ -321,24 +305,19 @@ const portfolioData = {
 const quickFactsList = document.getElementById("quick-facts");
 const aboutText = document.getElementById("about-text");
 const achievementGrid = document.getElementById("achievement-grid");
-const outcomesGrid = document.getElementById("outcomes-grid");
 const skillsGrid = document.getElementById("skills-grid");
 const experienceGrid = document.getElementById("experience-grid");
 const educationGrid = document.getElementById("education-grid");
 const projectsGrid = document.getElementById("projects-grid");
 const aiFocusGrid = document.getElementById("ai-focus-grid");
 const learningList = document.getElementById("learning-list");
-const certSpotlightGrid = document.getElementById("cert-spotlight-grid");
 const certGrid = document.getElementById("cert-grid");
 const interestsList = document.getElementById("interests-list");
 const contactGrid = document.getElementById("contact-grid");
 const footerText = document.getElementById("footer-text");
-const lookingForText = document.getElementById("looking-for-text");
 const githubProfileLink = document.getElementById("github-profile-link");
 const githubInlineLink = document.getElementById("github-inline-link");
 const credlyLink = document.getElementById("credly-link");
-const headerResumeLink = document.getElementById("header-resume-link");
-const footerResumeLink = document.getElementById("footer-resume-link");
 const socialGithub = document.getElementById("social-github");
 const socialLinkedIn = document.getElementById("social-linkedin");
 const socialCredly = document.getElementById("social-credly");
@@ -346,7 +325,6 @@ const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
 
 aboutText.textContent = portfolioData.summary;
-lookingForText.textContent = portfolioData.lookingFor;
 
 portfolioData.quickFacts.forEach((fact) => {
   const li = document.createElement("li");
@@ -372,17 +350,6 @@ portfolioData.achievements.forEach((achievement) => {
 
   card.append(value, label, note);
   achievementGrid.appendChild(card);
-});
-
-portfolioData.selectedOutcomes.forEach((outcome) => {
-  const card = document.createElement("article");
-  card.className = "card";
-
-  const text = document.createElement("p");
-  text.textContent = outcome;
-
-  card.append(text);
-  outcomesGrid.appendChild(card);
 });
 
 portfolioData.skillsets.forEach((skillGroup) => {
@@ -413,49 +380,16 @@ portfolioData.employmentHistory.forEach((job) => {
   meta.className = "meta";
   meta.textContent = job.duration;
 
-  const primaryList = document.createElement("ul");
-  primaryList.className = "compact-list";
+  const list = document.createElement("ul");
+  list.className = "compact-list";
 
-  const primaryHighlights = job.highlights.slice(0, 6);
-  const moreHighlights = job.highlights.slice(6);
-
-  primaryHighlights.forEach((point) => {
+  job.highlights.forEach((point) => {
     const li = document.createElement("li");
     li.textContent = point;
-    primaryList.appendChild(li);
+    list.appendChild(li);
   });
 
-  const techList = document.createElement("ul");
-  techList.className = "job-tech";
-
-  job.tech.forEach((tech) => {
-    const li = document.createElement("li");
-    li.textContent = tech;
-    techList.appendChild(li);
-  });
-
-  card.append(title, meta, primaryList, techList);
-
-  if (moreHighlights.length > 0) {
-    const details = document.createElement("details");
-    details.className = "more-details";
-
-    const summary = document.createElement("summary");
-    summary.textContent = "More details";
-
-    const moreList = document.createElement("ul");
-    moreList.className = "compact-list";
-
-    moreHighlights.forEach((point) => {
-      const li = document.createElement("li");
-      li.textContent = point;
-      moreList.appendChild(li);
-    });
-
-    details.append(summary, moreList);
-    card.appendChild(details);
-  }
-
+  card.append(title, meta, list);
   experienceGrid.appendChild(card);
 });
 
@@ -489,11 +423,7 @@ portfolioData.projects.forEach((project) => {
   stack.textContent = `Tech: ${project.tech.join(", ")}`;
   stack.style.marginTop = "10px";
 
-  const outcome = document.createElement("p");
-  outcome.textContent = project.outcome;
-  outcome.style.marginTop = "8px";
-
-  card.append(title, description, stack, outcome);
+  card.append(title, description, stack);
 
   if (project.link) {
     const link = document.createElement("a");
@@ -528,18 +458,7 @@ portfolioData.learningTrack.forEach((item) => {
   learningList.appendChild(li);
 });
 
-portfolioData.certifications.slice(0, 4).forEach((cert) => {
-  const card = document.createElement("article");
-  card.className = "card";
-  card.innerHTML = `
-    <h3>${cert.name}</h3>
-    <p>${cert.issuer}</p>
-    <p>${cert.year}</p>
-  `;
-  certSpotlightGrid.appendChild(card);
-});
-
-portfolioData.certifications.slice(4).forEach((cert) => {
+portfolioData.certifications.forEach((cert) => {
   const card = document.createElement("article");
   card.className = "card";
   card.innerHTML = `
@@ -591,9 +510,6 @@ githubInlineLink.rel = "noopener";
 credlyLink.href = portfolioData.credlyProfile;
 credlyLink.target = "_blank";
 credlyLink.rel = "noopener";
-
-headerResumeLink.href = "Rahul_Lynel__DSouza_-_Senior_DevOps__Site_Reliability_Engineer.pdf";
-footerResumeLink.href = "Rahul_Lynel__DSouza_-_Senior_DevOps__Site_Reliability_Engineer.pdf";
 
 socialGithub.href = portfolioData.githubProfile;
 socialGithub.target = "_blank";
