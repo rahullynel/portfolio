@@ -2,12 +2,21 @@ const portfolioData = {
   name: "Rahul Lynel D'Souza",
   role: "Senior DevOps / Site Reliability Engineer",
   summary:
-    "DevOps and Site Reliability Engineer with close to 9 years of experience across cloud infrastructure, platform engineering, CI/CD, and production operations. I focus on building reliable systems, reducing operational friction, and improving delivery speed for engineering teams. I am currently deepening my understanding of AI and MLOps concepts from a platform and reliability perspective.",
+    "DevOps and Site Reliability Engineer with close to 9 years of experience owning production platforms across cloud and hybrid environments. I build stable systems, improve deployment reliability, and reduce operational toil through automation and strong engineering practices.",
+  profileStatement:
+    "I work best where reliability, scale, and delivery speed matter. My approach combines platform thinking, strong incident discipline, and practical automation to help engineering teams ship safely and move faster.",
   profileHighlights: [
-    "Almost 9 years across DevOps, SRE, and infrastructure engineering.",
-    "Strong hands-on ownership of Kubernetes, CI/CD, observability, and cloud operations.",
-    "Track record of improving reliability, recovery time, and operational efficiency.",
-    "Currently expanding into AI and MLOps from a platform engineering perspective."
+    "Built and operated production systems with 99.9%+ uptime expectations.",
+    "Reduced MTTR, improved performance, and lowered infrastructure cost with measurable outcomes.",
+    "Designed CI/CD and platform workflows used by multi-team engineering organizations.",
+    "Hands-on across Kubernetes, cloud services, observability, infrastructure as code, and DevSecOps."
+  ],
+  profileFocus: [
+    "Platform reliability and resilience",
+    "Cloud and Kubernetes operations",
+    "CI/CD and developer platform enablement",
+    "Observability and incident response",
+    "AI-ready infrastructure and MLOps concepts"
   ],
   quickFacts: [
     "Abu Dhabi, United Arab Emirates",
@@ -326,7 +335,9 @@ const portfolioData = {
 
 const quickFactsList = document.getElementById("quick-facts");
 const aboutText = document.getElementById("about-text");
+const profileStatement = document.getElementById("profile-statement");
 const profilePoints = document.getElementById("profile-points");
+const profileFocus = document.getElementById("profile-focus");
 const achievementGrid = document.getElementById("achievement-grid");
 const skillsGrid = document.getElementById("skills-grid");
 const skillLogos = document.getElementById("skill-logos");
@@ -349,11 +360,18 @@ const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
 
 aboutText.textContent = portfolioData.summary;
+profileStatement.textContent = portfolioData.profileStatement;
 
 portfolioData.profileHighlights.forEach((point) => {
   const li = document.createElement("li");
   li.textContent = point;
   profilePoints.appendChild(li);
+});
+
+portfolioData.profileFocus.forEach((item) => {
+  const li = document.createElement("li");
+  li.textContent = item;
+  profileFocus.appendChild(li);
 });
 
 portfolioData.quickFacts.forEach((fact) => {

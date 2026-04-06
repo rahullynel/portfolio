@@ -277,6 +277,31 @@ h2 {
   font-weight: 600;
 }
 
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.profile-statement {
+  margin-top: 10px;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.profile-side {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(8, 18, 29, 0.7);
+  padding: 12px;
+}
+
+.profile-sub {
+  margin-top: 0;
+}
+
 .profile-points {
   margin: 14px 0 0;
   padding-left: 18px;
@@ -561,6 +586,10 @@ footer {
   .one-col,
   .four-col,
   .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-layout {
     grid-template-columns: 1fr;
   }
 
