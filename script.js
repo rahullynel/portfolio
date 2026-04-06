@@ -3,6 +3,12 @@ const portfolioData = {
   role: "Senior DevOps / Site Reliability Engineer",
   summary:
     "DevOps and Site Reliability Engineer with close to 9 years of experience across cloud infrastructure, platform engineering, CI/CD, and production operations. I focus on building reliable systems, reducing operational friction, and improving delivery speed for engineering teams. I am currently deepening my understanding of AI and MLOps concepts from a platform and reliability perspective.",
+  profileHighlights: [
+    "Almost 9 years across DevOps, SRE, and infrastructure engineering.",
+    "Strong hands-on ownership of Kubernetes, CI/CD, observability, and cloud operations.",
+    "Track record of improving reliability, recovery time, and operational efficiency.",
+    "Currently expanding into AI and MLOps from a platform engineering perspective."
+  ],
   quickFacts: [
     "Abu Dhabi, United Arab Emirates",
     "Almost 9 years in DevOps/SRE and infrastructure",
@@ -34,6 +40,26 @@ const portfolioData = {
   ],
   credlyProfile: "https://www.credly.com/users/rahullynel/badges#credly",
   githubProfile: "https://github.com/rahullynel",
+  skillLogos: [
+    { name: "Azure", icon: "https://cdn.simpleicons.org/microsoftazure" },
+    { name: "AWS", icon: "https://cdn.simpleicons.org/amazonaws" },
+    { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes" },
+    { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
+    { name: "Terraform", icon: "https://cdn.simpleicons.org/terraform" },
+    { name: "Ansible", icon: "https://cdn.simpleicons.org/ansible" },
+    { name: "GitLab", icon: "https://cdn.simpleicons.org/gitlab" },
+    { name: "GitHub", icon: "https://cdn.simpleicons.org/github" },
+    { name: "Jenkins", icon: "https://cdn.simpleicons.org/jenkins" },
+    { name: "ArgoCD", icon: "https://cdn.simpleicons.org/argo" },
+    { name: "Prometheus", icon: "https://cdn.simpleicons.org/prometheus" },
+    { name: "Grafana", icon: "https://cdn.simpleicons.org/grafana" },
+    { name: "OpenTelemetry", icon: "https://cdn.simpleicons.org/opentelemetry" },
+    { name: "Linux", icon: "https://cdn.simpleicons.org/linux" },
+    { name: "Vault", icon: "https://cdn.simpleicons.org/vault" },
+    { name: "SonarQube", icon: "https://cdn.simpleicons.org/sonarqube" },
+    { name: "JFrog", icon: "https://cdn.simpleicons.org/jfrog" },
+    { name: "Nginx", icon: "https://cdn.simpleicons.org/nginx" }
+  ],
   skillsets: [
     {
       title: "Cloud & Platform",
@@ -304,8 +330,10 @@ const portfolioData = {
 
 const quickFactsList = document.getElementById("quick-facts");
 const aboutText = document.getElementById("about-text");
+const profilePoints = document.getElementById("profile-points");
 const achievementGrid = document.getElementById("achievement-grid");
 const skillsGrid = document.getElementById("skills-grid");
+const skillLogos = document.getElementById("skill-logos");
 const experienceGrid = document.getElementById("experience-grid");
 const educationGrid = document.getElementById("education-grid");
 const projectsGrid = document.getElementById("projects-grid");
@@ -325,6 +353,12 @@ const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
 
 aboutText.textContent = portfolioData.summary;
+
+portfolioData.profileHighlights.forEach((point) => {
+  const li = document.createElement("li");
+  li.textContent = point;
+  profilePoints.appendChild(li);
+});
 
 portfolioData.quickFacts.forEach((fact) => {
   const li = document.createElement("li");
@@ -367,6 +401,22 @@ portfolioData.skillsets.forEach((skillGroup) => {
 
   card.append(title, list);
   skillsGrid.appendChild(card);
+});
+
+portfolioData.skillLogos.forEach((item) => {
+  const tile = document.createElement("article");
+  tile.className = "logo-item";
+
+  const img = document.createElement("img");
+  img.src = item.icon;
+  img.alt = item.name;
+  img.loading = "lazy";
+
+  const label = document.createElement("span");
+  label.textContent = item.name;
+
+  tile.append(img, label);
+  skillLogos.appendChild(tile);
 });
 
 portfolioData.employmentHistory.forEach((job) => {

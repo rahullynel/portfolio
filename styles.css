@@ -277,6 +277,16 @@ h2 {
   font-weight: 600;
 }
 
+.profile-points {
+  margin: 14px 0 0;
+  padding-left: 18px;
+}
+
+.profile-points li {
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
 .panel-header {
   display: flex;
   align-items: center;
@@ -401,6 +411,38 @@ h2 {
   margin-top: 10px;
 }
 
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.logo-item {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(8, 18, 29, 0.75);
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.logo-item img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.logo-item span {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.2;
+}
+
 .contact-grid {
   display: grid;
   gap: 14px;
@@ -456,6 +498,10 @@ footer {
   .four-col {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .logo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 740px) {
@@ -504,6 +550,10 @@ footer {
   .four-col,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .hero {
