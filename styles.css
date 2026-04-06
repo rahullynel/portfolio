@@ -442,6 +442,32 @@ h2 {
   margin-top: 10px;
 }
 
+.post-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.post-content h2,
+.post-content h3 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.55rem;
+}
+
+.post-content p {
+  margin: 0 0 0.95rem;
+  color: var(--muted);
+}
+
+.post-content ul {
+  margin: 0.3rem 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.post-content li {
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));

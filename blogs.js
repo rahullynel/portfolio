@@ -1,25 +1,18 @@
 const blogData = {
   name: "Rahul Lynel D'Souza",
   role: "Senior DevOps / Site Reliability Engineer",
-  blogHome: "https://medium.com/",
   posts: [
     {
-      title: "How I Approach Reliable Platform Engineering",
-      summary: "A practical look at reducing operational toil while improving deployment safety and reliability.",
-      date: "Add date",
-      url: "https://example.com/blog-post-1"
-    },
-    {
-      title: "Kubernetes Observability: What Actually Matters",
-      summary: "Key signals and dashboards I rely on for production incident response and service health.",
-      date: "Add date",
-      url: "https://example.com/blog-post-2"
+      title: "RAG vs Long-Context: If Models Can Read More, Do We Still Need Retrieval?",
+      summary: "A practical reflection on the tradeoffs between retrieval-augmented generation and long-context prompting, and why hybrid systems are likely the real path.",
+      date: "April 6, 2026",
+      url: "blog-rag-vs-long-context.html",
+      external: false
     }
   ]
 };
 
 const blogsGrid = document.getElementById("blogs-grid");
-const blogHomeLink = document.getElementById("blog-home-link");
 const footerText = document.getElementById("footer-text");
 
 blogData.posts.forEach((post) => {
@@ -39,17 +32,15 @@ blogData.posts.forEach((post) => {
   const link = document.createElement("a");
   link.className = "text-link repo-link";
   link.href = post.url;
-  link.target = "_blank";
-  link.rel = "noopener";
+  if (post.external) {
+    link.target = "_blank";
+    link.rel = "noopener";
+  }
   link.textContent = "Read Blog";
 
   card.append(title, date, summary, link);
   blogsGrid.appendChild(card);
 });
-
-blogHomeLink.href = blogData.blogHome;
-blogHomeLink.target = "_blank";
-blogHomeLink.rel = "noopener";
 
 footerText.textContent = `© ${new Date().getFullYear()} ${blogData.name} • ${blogData.role}`;
 
