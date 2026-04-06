@@ -41,24 +41,20 @@ const portfolioData = {
   credlyProfile: "https://www.credly.com/users/rahullynel/badges#credly",
   githubProfile: "https://github.com/rahullynel",
   skillLogos: [
-    { name: "Azure", icon: "https://cdn.simpleicons.org/microsoftazure" },
-    { name: "AWS", icon: "https://cdn.simpleicons.org/amazonaws" },
-    { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes" },
-    { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
-    { name: "Terraform", icon: "https://cdn.simpleicons.org/terraform" },
-    { name: "Ansible", icon: "https://cdn.simpleicons.org/ansible" },
-    { name: "GitLab", icon: "https://cdn.simpleicons.org/gitlab" },
-    { name: "GitHub", icon: "https://cdn.simpleicons.org/github" },
-    { name: "Jenkins", icon: "https://cdn.simpleicons.org/jenkins" },
-    { name: "ArgoCD", icon: "https://cdn.simpleicons.org/argo" },
-    { name: "Prometheus", icon: "https://cdn.simpleicons.org/prometheus" },
-    { name: "Grafana", icon: "https://cdn.simpleicons.org/grafana" },
-    { name: "OpenTelemetry", icon: "https://cdn.simpleicons.org/opentelemetry" },
-    { name: "Linux", icon: "https://cdn.simpleicons.org/linux" },
-    { name: "Vault", icon: "https://cdn.simpleicons.org/vault" },
-    { name: "SonarQube", icon: "https://cdn.simpleicons.org/sonarqube" },
-    { name: "JFrog", icon: "https://cdn.simpleicons.org/jfrog" },
-    { name: "Nginx", icon: "https://cdn.simpleicons.org/nginx" }
+    { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+    { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+    { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Terraform", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" },
+    { name: "Ansible", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" },
+    { name: "GitLab", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
+    { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { name: "Jenkins", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+    { name: "Prometheus", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" },
+    { name: "Grafana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" },
+    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+    { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" }
   ],
   skillsets: [
     {
@@ -412,10 +408,20 @@ portfolioData.skillLogos.forEach((item) => {
   img.alt = item.name;
   img.loading = "lazy";
 
+   const fallback = document.createElement("span");
+   fallback.className = "logo-fallback";
+   fallback.textContent = item.name.slice(0, 2).toUpperCase();
+   fallback.hidden = true;
+
+   img.addEventListener("error", () => {
+     img.hidden = true;
+     fallback.hidden = false;
+   });
+
   const label = document.createElement("span");
   label.textContent = item.name;
 
-  tile.append(img, label);
+  tile.append(img, fallback, label);
   skillLogos.appendChild(tile);
 });
 
