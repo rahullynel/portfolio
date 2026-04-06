@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>What Is MCP Really? | Rahul Lynel D'Souza</title>
+  <meta name="description" content="What MCP really is, why it matters, and how it complements APIs in AI systems." />
+  <meta name="theme-color" content="#07131f" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260406e" />
+</head>
+<body>
+  <div class="background-glow glow-a"></div>
+  <div class="background-glow glow-b"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Rahul Lynel D'Souza</a>
+    <nav class="nav-links" id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero reveal" data-delay="0">
+      <p class="eyebrow">AI Notes</p>
+      <h1>What Is MCP Really?</h1>
+      <p class="hero-description">And why do we need it if APIs already exist?</p>
+      <div class="hero-cta">
+        <a class="btn btn-secondary" href="blogs.html">Back to All Posts</a>
+      </div>
+    </section>
+
+    <article class="panel post-content reveal" data-delay="120">
+      <p class="meta">Published on April 6, 2026</p>
+
+      <p>The more I read about AI systems, the more I keep seeing one term everywhere: MCP.</p>
+
+      <p>At first, I assumed it was just another trendy layer being added on top of things that already work. My first reaction was honestly: why do we need MCP if APIs already exist?</p>
+
+      <p>That still feels like a fair question. APIs are not new. We already know how to connect systems, expose endpoints, authenticate, send requests, get responses, and wire applications together. So if all of that is already possible, what exactly is MCP solving?</p>
+
+      <p>The way I understand it now, MCP, or Model Context Protocol, is not trying to replace APIs. It is trying to standardize how AI applications discover and use external tools, resources, and workflows. That distinction changed the way I think about it.</p>
+
+      <h2>APIs Are For Software, MCP Is For AI-Facing Interoperability</h2>
+      <p>A normal API is usually designed for a developer or an application that already knows what it wants to call. It knows the endpoint, payload, auth mechanism, response shape, and the order of operations. In other words, the caller is deterministic.</p>
+
+      <p>But an LLM is different. An AI assistant does not always operate like a traditional client coded with fixed logic. It needs a structured way to discover what capabilities exist, understand what they do, know what inputs they expect, and decide when to use them.</p>
+
+      <p>That is where MCP starts to make sense to me.</p>
+
+      <p>So the real comparison is not API versus MCP. It is more like:</p>
+      <ul>
+        <li>Raw service integration</li>
+        <li>A standard interface for model-driven tool use</li>
+      </ul>
+
+      <h2>Is MCP Replacing APIs?</h2>
+      <p>From what I can tell: not really. In many cases, MCP sits on top of existing APIs rather than eliminating them.</p>
+
+      <p>Your backend service may still expose REST or GraphQL or internal service calls. But instead of making every AI app build its own one-off integration to those services, you can wrap those capabilities in a way AI clients can understand consistently.</p>
+
+      <p>That is probably the biggest mental shift. MCP is not an alternative to APIs. It is a standard way of presenting capabilities to models.</p>
+
+      <p>APIs are still the plumbing. MCP is becoming the adapter layer.</p>
+
+      <h2>What MCP Seems To Add</h2>
+      <p>If every team integrates tools into AI systems differently, things get messy quickly. One assistant might expect a custom tool schema. Another might use a different format for resource discovery. Another might hardcode prompt templates. Another might pass around function definitions in a completely incompatible way.</p>
+
+      <p>MCP tries to reduce that fragmentation by giving everyone a shared pattern. That means, in theory, fewer bespoke integrations. And that matters because AI systems already have enough moving parts.</p>
+
+      <p>Without a common protocol, every model-connected app risks becoming its own special case.</p>
+
+      <h2>Why Not Just Use Function Calling?</h2>
+      <p>That was another thing I wondered. Many modern model APIs already support tool or function calling. So yes, function calling works.</p>
+
+      <p>But function calling by itself often lives inside one vendor's API format or one app's implementation style. MCP feels like an attempt to make that layer more portable. If tool definitions and context exposure become standardized, then in principle the same capability can be reused across multiple AI clients instead of being redefined from scratch every time.</p>
+
+      <h2>Where MCP Feels Genuinely Useful</h2>
+      <p>Imagine you have:</p>
+      <ul>
+        <li>Internal docs</li>
+        <li>Ticketing data</li>
+        <li>Deployment tools</li>
+        <li>Calendar actions</li>
+        <li>Repo metadata</li>
+        <li>Database lookups</li>
+        <li>Custom workflows</li>
+      </ul>
+
+      <p>You can absolutely expose all of this through APIs. But now you want an AI assistant to use them. Not just one assistant. Maybe several. Maybe in your IDE, your chat interface, your support workflow, and your internal ops bot.</p>
+
+      <p>That is where MCP starts to feel less like hype and more like interface discipline. Instead of building five separate AI integrations into the same systems, you expose them once in a standard way and let compatible clients discover and use them.</p>
+
+      <h2>But There Are Tradeoffs</h2>
+      <p>No new abstraction arrives for free. MCP gives standardization, but it also adds another layer.</p>
+
+      <p>And every new layer means:</p>
+      <ul>
+        <li>More things to configure</li>
+        <li>More auth decisions</li>
+        <li>More governance questions</li>
+        <li>More monitoring</li>
+        <li>More security boundaries</li>
+      </ul>
+
+      <p>Once an AI system can read files, query systems, or trigger actions, the question is no longer just can it connect, but also:</p>
+      <ul>
+        <li>What should it be allowed to see?</li>
+        <li>What should it be allowed to do?</li>
+        <li>Who approves that access?</li>
+        <li>How do we protect against misuse?</li>
+      </ul>
+
+      <p>So MCP may standardize the connection model, but it does not remove the need for serious security thinking.</p>
+
+      <h2>My Current View: APIs Are Still The Foundation</h2>
+      <p>At least from where I stand right now, APIs are still absolutely essential. They are still the underlying mechanism through which systems do useful work. They are still how services expose data and actions. They are still how most real business logic gets implemented.</p>
+
+      <p>MCP does not make APIs irrelevant. It just acknowledges that models are becoming a new kind of client, and those clients benefit from a more standardized way to discover and consume capabilities.</p>
+
+      <p>So maybe the better question is not: why MCP if APIs exist?</p>
+
+      <p>Maybe it is: how do we make APIs and tools usable, understandable, and portable for model-driven systems?</p>
+
+      <p>That feels like the real problem MCP is trying to solve.</p>
+
+      <h2>The Simplest Way I Explain It To Myself</h2>
+      <p>This is the rough mental model I have landed on:</p>
+      <ul>
+        <li>APIs let systems talk to systems</li>
+        <li>MCP helps AI applications understand what external capabilities exist and how to use them in a standardized way</li>
+      </ul>
+
+      <p>Or even more simply: APIs are the machinery. MCP is the handshake for AI access to that machinery.</p>
+
+      <p>That may not be the most academic explanation, but it is the one that finally made it click for me.</p>
+
+      <h2>Final Thought</h2>
+      <p>I do not think MCP exists because APIs failed.</p>
+
+      <p>I think MCP exists because AI changes the kind of client we are building for. And once the client is no longer a rigidly programmed application, but a reasoning system that needs discoverable tools, readable resources, and structured actions, the old just give it an API answer starts to feel incomplete.</p>
+
+      <p>Not wrong. Just incomplete. That is why MCP seems to matter. Not because APIs are gone, but because AI needs a cleaner contract for using them.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Rahul Lynel D'Souza</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".reveal").forEach((el) => {
+      const delay = Number(el.getAttribute("data-delay") || 0);
+      el.style.setProperty("--delay", `${delay}ms`);
+    });
+  </script>
+</body>
+</html>

@@ -3,6 +3,13 @@ const blogData = {
   role: "Senior DevOps / Site Reliability Engineer",
   posts: [
     {
+      title: "What is MCP really, and why do we need it if APIs already exist?",
+      summary: "A practical breakdown of MCP as a standard interface for model-driven tool use, and how it complements rather than replaces APIs.",
+      date: "April 6, 2026",
+      url: "blog-what-is-mcp-and-why.html",
+      external: false
+    },
+    {
       title: "RAG vs Long-Context: If Models Can Read More, Do We Still Need Retrieval?",
       summary: "A practical reflection on the tradeoffs between retrieval-augmented generation and long-context prompting, and why hybrid systems are likely the real path.",
       date: "April 6, 2026",
