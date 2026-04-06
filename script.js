@@ -432,20 +432,14 @@ portfolioData.skillLogos.forEach((item) => {
   img.alt = item.name;
   img.loading = "lazy";
 
-   const fallback = document.createElement("span");
-   fallback.className = "logo-fallback";
-   fallback.textContent = item.name.slice(0, 2).toUpperCase();
-   fallback.hidden = true;
-
-   img.addEventListener("error", () => {
-     img.hidden = true;
-     fallback.hidden = false;
-   });
+  img.addEventListener("error", () => {
+    tile.classList.add("logo-missing");
+  });
 
   const label = document.createElement("span");
   label.textContent = item.name;
 
-  tile.append(img, fallback, label);
+  tile.append(img, label);
   skillLogos.appendChild(tile);
 });
 
