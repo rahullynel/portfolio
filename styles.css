@@ -374,6 +374,12 @@ h2 {
   font-size: 0.9rem;
 }
 
+#blogs .card .meta {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
 .card .compact-list {
   margin-top: 10px;
 }
