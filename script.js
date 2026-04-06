@@ -337,7 +337,7 @@ const quickFactsList = document.getElementById("quick-facts");
 const aboutText = document.getElementById("about-text");
 const profileStatement = document.getElementById("profile-statement");
 const profilePoints = document.getElementById("profile-points");
-const profileFocus = document.getElementById("profile-focus");
+const profileFocusList = document.getElementById("profile-focus");
 const achievementGrid = document.getElementById("achievement-grid");
 const skillsGrid = document.getElementById("skills-grid");
 const skillLogos = document.getElementById("skill-logos");
@@ -362,17 +362,23 @@ const siteNav = document.getElementById("site-nav");
 aboutText.textContent = portfolioData.summary;
 profileStatement.textContent = portfolioData.profileStatement;
 
-portfolioData.profileHighlights.forEach((point) => {
-  const li = document.createElement("li");
-  li.textContent = point;
-  profilePoints.appendChild(li);
-});
+if (profilePoints && Array.isArray(portfolioData.profileHighlights)) {
+  profilePoints.innerHTML = "";
+  portfolioData.profileHighlights.forEach((point) => {
+    const li = document.createElement("li");
+    li.textContent = point;
+    profilePoints.appendChild(li);
+  });
+}
 
-portfolioData.profileFocus.forEach((item) => {
-  const li = document.createElement("li");
-  li.textContent = item;
-  profileFocus.appendChild(li);
-});
+if (profileFocusList && Array.isArray(portfolioData.profileFocus)) {
+  profileFocusList.innerHTML = "";
+  portfolioData.profileFocus.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    profileFocusList.appendChild(li);
+  });
+}
 
 portfolioData.quickFacts.forEach((fact) => {
   const li = document.createElement("li");
