@@ -413,6 +413,18 @@ portfolioData.employmentHistory.forEach((job) => {
   meta.className = "meta";
   meta.textContent = job.duration;
 
+  const primaryList = document.createElement("ul");
+  primaryList.className = "compact-list";
+
+  const primaryHighlights = job.highlights.slice(0, 6);
+  const moreHighlights = job.highlights.slice(6);
+
+  primaryHighlights.forEach((point) => {
+    const li = document.createElement("li");
+    li.textContent = point;
+    primaryList.appendChild(li);
+  });
+
   const techList = document.createElement("ul");
   techList.className = "job-tech";
 
@@ -422,25 +434,27 @@ portfolioData.employmentHistory.forEach((job) => {
     techList.appendChild(li);
   });
 
-  card.append(title, meta, techList);
+  card.append(title, meta, primaryList, techList);
 
-  const details = document.createElement("details");
-  details.className = "more-details";
+  if (moreHighlights.length > 0) {
+    const details = document.createElement("details");
+    details.className = "more-details";
 
-  const summary = document.createElement("summary");
-  summary.textContent = "More details";
+    const summary = document.createElement("summary");
+    summary.textContent = "More details";
 
-  const detailList = document.createElement("ul");
-  detailList.className = "compact-list";
+    const moreList = document.createElement("ul");
+    moreList.className = "compact-list";
 
-  job.highlights.forEach((point) => {
-    const li = document.createElement("li");
-    li.textContent = point;
-    detailList.appendChild(li);
-  });
+    moreHighlights.forEach((point) => {
+      const li = document.createElement("li");
+      li.textContent = point;
+      moreList.appendChild(li);
+    });
 
-  details.append(summary, detailList);
-  card.appendChild(details);
+    details.append(summary, moreList);
+    card.appendChild(details);
+  }
 
   experienceGrid.appendChild(card);
 });
