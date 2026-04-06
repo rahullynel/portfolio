@@ -1,6 +1,16 @@
 const portfolioData = {
   name: "Rahul Lynel D'Souza",
   role: "Senior DevOps / Site Reliability Engineer",
+  availabilityLine: "Open to Senior DevOps/SRE opportunities | Abu Dhabi | Remote/Hybrid",
+  introCallLink: "https://calendar.app.google/fsLKm5Czjn7uiNwc6",
+  valueProposition:
+    "I help engineering teams ship faster and stay reliable through scalable cloud platforms, resilient automation, and strong SRE practices.",
+  valuePropositionExamples: [
+    "I help engineering teams ship faster and stay reliable through scalable cloud platforms, resilient automation, and strong SRE practices.",
+    "I design and operate reliable cloud platforms that reduce incidents, improve delivery speed, and keep production stable at scale.",
+    "I turn complex infrastructure into dependable developer platforms so teams can release confidently with less operational toil.",
+    "I build production-ready DevOps and SRE systems that improve uptime, shorten recovery time, and support secure growth."
+  ],
   summary:
     "DevOps and Site Reliability Engineer with close to 9 years of experience owning production platforms across cloud and hybrid environments. I build stable systems, improve deployment reliability, and reduce operational toil through automation and strong engineering practices.",
   profileStatement:
@@ -47,6 +57,28 @@ const portfolioData = {
       note: "Reduced incident recovery time through observability and alerting"
     }
   ],
+  signatureWins: [
+    {
+      title: "VMware Exit and Platform Modernization",
+      summary: "Migrated production services from VMware to Linux systemd-based platforms.",
+      outcome: "Cut infrastructure licensing cost by 65% and simplified long-term platform operations."
+    },
+    {
+      title: "Monitoring Stack Transformation",
+      summary: "Replaced OpenSNMPCollector and Nagios with OpenTelemetry, OpenNMS, and Grafana.",
+      outcome: "Reduced monitoring license cost by 80% while improving telemetry depth and visibility."
+    },
+    {
+      title: "Server Estate License Continuity",
+      summary: "Owned end-to-end license continuity across a 700+ Dell server estate.",
+      outcome: "Eliminated renewal disruption risk and maintained uninterrupted business operations."
+    },
+    {
+      title: "Kubernetes Monitoring Built from Zero",
+      summary: "Built Kubernetes observability from zero with OpenTelemetry, SLAs, and proactive alerting.",
+      outcome: "Introduced platform-wide monitoring standards and accelerated incident response through earlier detection."
+    }
+  ],
   credlyProfile: "https://www.credly.com/users/rahullynel/badges#credly",
   githubProfile: "https://github.com/rahullynel",
   skillLogos: [
@@ -71,14 +103,6 @@ const portfolioData = {
       items: ["Azure", "AWS", "VMware vSphere", "KVM", "Linode"]
     },
     {
-      title: "Azure Services",
-      items: ["Azure Virtual Machines", "Azure Kubernetes Service (AKS)", "Azure Monitor", "Virtual Network (VNet)", "Azure Load Balancer", "Azure Key Vault", "Azure DevOps"]
-    },
-    {
-      title: "AWS Services",
-      items: ["EC2", "VPC", "IAM", "S3", "CloudWatch", "Elastic Load Balancing (ELB)", "Route 53"]
-    },
-    {
       title: "Containers & Orchestration",
       items: ["Docker", "Kubernetes", "Helm"]
     },
@@ -91,16 +115,24 @@ const portfolioData = {
       items: ["Prometheus", "Grafana", "OpenTelemetry", "Azure Monitor", "Nagios", "OpenNMS", "Incident Response", "RCA"]
     },
     {
+      title: "Azure Services",
+      items: ["Azure Virtual Machines", "Azure Kubernetes Service (AKS)", "Azure Monitor", "Virtual Network (VNet)", "Azure Load Balancer", "Azure Key Vault", "Azure DevOps"]
+    },
+    {
+      title: "AWS Services",
+      items: ["EC2", "VPC", "IAM", "S3", "CloudWatch", "Elastic Load Balancing (ELB)", "Route 53"]
+    },
+    {
+      title: "Automation & IaC",
+      items: ["Terraform", "Ansible", "GitOps"]
+    },
+    {
       title: "DevSecOps & Security",
       items: ["Vault", "Trivy", "Aqua", "Snyk", "SonarQube", "Azure Key Vault", "CheckMarx"]
     },
     {
       title: "Operating Systems & Infrastructure",
       items: ["Linux (Ubuntu, RHEL)", "Windows", "Dell PowerEdge Servers", "HP Servers", "EMC SAN/NAS", "Cisco Catalyst"]
-    },
-    {
-      title: "Automation & IaC",
-      items: ["Terraform", "Ansible", "GitOps"]
     },
     {
       title: "AI-Aware Platform Thinking",
@@ -334,11 +366,13 @@ const portfolioData = {
 };
 
 const quickFactsList = document.getElementById("quick-facts");
+const valuePropositionText = document.getElementById("value-proposition");
 const aboutText = document.getElementById("about-text");
 const profileStatement = document.getElementById("profile-statement");
 const profilePoints = document.getElementById("profile-points");
 const profileFocusList = document.getElementById("profile-focus");
 const achievementGrid = document.getElementById("achievement-grid");
+const signatureWinsGrid = document.getElementById("signature-wins-grid");
 const skillsGrid = document.getElementById("skills-grid");
 const skillLogos = document.getElementById("skill-logos");
 const experienceGrid = document.getElementById("experience-grid");
@@ -350,6 +384,9 @@ const certGrid = document.getElementById("cert-grid");
 const interestsList = document.getElementById("interests-list");
 const contactGrid = document.getElementById("contact-grid");
 const footerText = document.getElementById("footer-text");
+const availabilityLine = document.getElementById("availability-line");
+const introCallLink = document.getElementById("intro-call-link");
+const introCallFooterLink = document.getElementById("intro-call-footer-link");
 const githubProfileLink = document.getElementById("github-profile-link");
 const githubInlineLink = document.getElementById("github-inline-link");
 const credlyLink = document.getElementById("credly-link");
@@ -358,6 +395,14 @@ const socialLinkedIn = document.getElementById("social-linkedin");
 const socialCredly = document.getElementById("social-credly");
 const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
+
+if (valuePropositionText && portfolioData.valueProposition) {
+  valuePropositionText.textContent = portfolioData.valueProposition;
+}
+
+if (availabilityLine && portfolioData.availabilityLine) {
+  availabilityLine.textContent = portfolioData.availabilityLine;
+}
 
 aboutText.textContent = portfolioData.summary;
 profileStatement.textContent = portfolioData.profileStatement;
@@ -406,9 +451,35 @@ portfolioData.achievements.forEach((achievement) => {
   achievementGrid.appendChild(card);
 });
 
-portfolioData.skillsets.forEach((skillGroup) => {
+if (signatureWinsGrid && Array.isArray(portfolioData.signatureWins)) {
+  portfolioData.signatureWins.forEach((win) => {
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const title = document.createElement("h3");
+    title.textContent = win.title;
+
+    const summary = document.createElement("p");
+    summary.textContent = win.summary;
+
+    const outcome = document.createElement("p");
+    outcome.className = "win-outcome";
+    outcome.textContent = win.outcome;
+
+    card.append(title, summary, outcome);
+    signatureWinsGrid.appendChild(card);
+  });
+}
+
+const VISIBLE_SKILL_GROUPS = 4;
+
+portfolioData.skillsets.forEach((skillGroup, index) => {
   const card = document.createElement("article");
   card.className = "card";
+  if (index >= VISIBLE_SKILL_GROUPS) {
+    card.classList.add("is-extra-skill");
+    card.hidden = true;
+  }
   const title = document.createElement("h3");
   title.textContent = skillGroup.title;
   const list = document.createElement("ul");
@@ -422,6 +493,27 @@ portfolioData.skillsets.forEach((skillGroup) => {
   card.append(title, list);
   skillsGrid.appendChild(card);
 });
+
+if (portfolioData.skillsets.length > VISIBLE_SKILL_GROUPS) {
+  const skillsToggle = document.createElement("button");
+  skillsToggle.type = "button";
+  skillsToggle.className = "list-toggle";
+  skillsToggle.textContent = `Show more skills (+${portfolioData.skillsets.length - VISIBLE_SKILL_GROUPS})`;
+  skillsToggle.setAttribute("aria-expanded", "false");
+
+  skillsToggle.addEventListener("click", () => {
+    const isExpanded = skillsToggle.getAttribute("aria-expanded") === "true";
+    skillsGrid.querySelectorAll(".is-extra-skill").forEach((item) => {
+      item.hidden = isExpanded;
+    });
+    skillsToggle.setAttribute("aria-expanded", String(!isExpanded));
+    skillsToggle.textContent = isExpanded
+      ? `Show more skills (+${portfolioData.skillsets.length - VISIBLE_SKILL_GROUPS})`
+      : "Show fewer skills";
+  });
+
+  skillsGrid.insertAdjacentElement("afterend", skillsToggle);
+}
 
 portfolioData.skillLogos.forEach((item) => {
   const tile = document.createElement("article");
@@ -457,13 +549,41 @@ portfolioData.employmentHistory.forEach((job) => {
   const list = document.createElement("ul");
   list.className = "compact-list";
 
-  job.highlights.forEach((point) => {
+  const VISIBLE_HIGHLIGHTS = 4;
+
+  job.highlights.forEach((point, index) => {
     const li = document.createElement("li");
     li.textContent = point;
+    if (index >= VISIBLE_HIGHLIGHTS) {
+      li.classList.add("is-extra-point");
+      li.hidden = true;
+    }
     list.appendChild(li);
   });
 
   card.append(title, meta, list);
+
+  if (job.highlights.length > VISIBLE_HIGHLIGHTS) {
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "list-toggle";
+    toggle.textContent = `Show more (+${job.highlights.length - VISIBLE_HIGHLIGHTS})`;
+    toggle.setAttribute("aria-expanded", "false");
+
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      list.querySelectorAll(".is-extra-point").forEach((item) => {
+        item.hidden = isExpanded;
+      });
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+      toggle.textContent = isExpanded
+        ? `Show more (+${job.highlights.length - VISIBLE_HIGHLIGHTS})`
+        : "Show less";
+    });
+
+    card.appendChild(toggle);
+  }
+
   experienceGrid.appendChild(card);
 });
 
@@ -533,9 +653,15 @@ portfolioData.learningTrack.forEach((item) => {
   learningList.appendChild(li);
 });
 
-portfolioData.certifications.forEach((cert) => {
+const VISIBLE_CERTIFICATIONS = 6;
+
+portfolioData.certifications.forEach((cert, index) => {
   const card = document.createElement("article");
   card.className = "card";
+  if (index >= VISIBLE_CERTIFICATIONS) {
+    card.classList.add("is-extra-cert");
+    card.hidden = true;
+  }
   card.innerHTML = `
     <h3>${cert.name}</h3>
     <p>${cert.issuer}</p>
@@ -543,6 +669,27 @@ portfolioData.certifications.forEach((cert) => {
   `;
   certGrid.appendChild(card);
 });
+
+if (portfolioData.certifications.length > VISIBLE_CERTIFICATIONS) {
+  const certToggle = document.createElement("button");
+  certToggle.type = "button";
+  certToggle.className = "list-toggle";
+  certToggle.textContent = `Show more certifications (+${portfolioData.certifications.length - VISIBLE_CERTIFICATIONS})`;
+  certToggle.setAttribute("aria-expanded", "false");
+
+  certToggle.addEventListener("click", () => {
+    const isExpanded = certToggle.getAttribute("aria-expanded") === "true";
+    certGrid.querySelectorAll(".is-extra-cert").forEach((item) => {
+      item.hidden = isExpanded;
+    });
+    certToggle.setAttribute("aria-expanded", String(!isExpanded));
+    certToggle.textContent = isExpanded
+      ? `Show more certifications (+${portfolioData.certifications.length - VISIBLE_CERTIFICATIONS})`
+      : "Show fewer certifications";
+  });
+
+  certGrid.insertAdjacentElement("afterend", certToggle);
+}
 
 portfolioData.interests.forEach((interest) => {
   const li = document.createElement("li");
@@ -597,6 +744,18 @@ socialLinkedIn.rel = "noopener";
 socialCredly.href = portfolioData.credlyProfile;
 socialCredly.target = "_blank";
 socialCredly.rel = "noopener";
+
+if (introCallLink) {
+  introCallLink.href = portfolioData.introCallLink;
+  introCallLink.target = "_blank";
+  introCallLink.rel = "noopener";
+}
+
+if (introCallFooterLink) {
+  introCallFooterLink.href = portfolioData.introCallLink;
+  introCallFooterLink.target = "_blank";
+  introCallFooterLink.rel = "noopener";
+}
 
 footerText.textContent = `© ${new Date().getFullYear()} ${portfolioData.name} • ${portfolioData.role}`;
 

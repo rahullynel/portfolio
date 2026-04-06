@@ -3,6 +3,13 @@ const blogData = {
   role: "Senior DevOps / Site Reliability Engineer",
   posts: [
     {
+      title: "LLMs, LangChain, RAG... why does AI have so many terms?",
+      summary: "A plain-English map of common AI terms and where each one fits in a real application stack.",
+      date: "April 6, 2026",
+      url: "blog-llms-langchain-rag-terms.html",
+      external: false
+    },
+    {
       title: "What is MCP really, and why do we need it if APIs already exist?",
       summary: "A practical breakdown of MCP as a standard interface for model-driven tool use, and how it complements rather than replaces APIs.",
       date: "April 6, 2026",
