@@ -17,11 +17,15 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   min-height: 100%;
 }
 
 html {
   background: #08111a;
+  background-color: #08111a;
+  height: -webkit-fill-available;
+  overflow-x: hidden;
 }
 
 body {
@@ -30,10 +34,22 @@ body {
   background-color: #08111a;
   background: radial-gradient(circle at 0% 0%, rgba(109, 197, 222, 0.1), transparent 26%),
               linear-gradient(160deg, #08111a 0%, #0d1b2a 55%, #0b1622 100%);
+  min-height: 100vh;
   min-height: 100svh;
+  min-height: -webkit-fill-available;
   line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
   position: relative;
   overflow-x: hidden;
+}
+
+/* Prevent white flash/background gaps on Safari during overscroll */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #08111a;
+  z-index: -3;
 }
 
 .background-glow {
@@ -73,9 +89,10 @@ body {
   top: 0;
   z-index: 5;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   background: rgba(10, 20, 31, 0.9);
   border-bottom: 1px solid rgba(242, 246, 251, 0.1);
-  padding: 14px 5vw;
+  padding: calc(14px + env(safe-area-inset-top)) max(5vw, env(safe-area-inset-right)) 14px max(5vw, env(safe-area-inset-left));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -98,6 +115,8 @@ body {
 
 .nav-toggle {
   display: none;
+  -webkit-appearance: none;
+  appearance: none;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(9, 21, 33, 0.8);
   color: var(--text);
@@ -441,7 +460,7 @@ footer {
 
 @media (max-width: 740px) {
   .site-header {
-    padding: 12px 4vw;
+    padding: calc(12px + env(safe-area-inset-top)) max(4vw, env(safe-area-inset-right)) 12px max(4vw, env(safe-area-inset-left));
     gap: 8px;
     flex-direction: row;
     align-items: center;
