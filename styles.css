@@ -172,6 +172,14 @@ h1 {
   font-size: 1.07rem;
 }
 
+.value-proposition {
+  margin: 0 0 10px;
+  max-width: 760px;
+  font-size: 1.04rem;
+  color: var(--accent-soft);
+  font-weight: 600;
+}
+
 .social-links {
   display: flex;
   align-items: center;
@@ -386,6 +394,23 @@ h2 {
 
 .card .compact-list li {
   margin-bottom: 6px;
+}
+
+.list-toggle {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(109, 197, 222, 0.45);
+  background: rgba(7, 20, 33, 0.65);
+  color: var(--accent-alt);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.list-toggle:hover {
+  border-color: rgba(109, 197, 222, 0.7);
+  color: var(--text);
 }
 
 .metric-card {

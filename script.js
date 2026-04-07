@@ -1,29 +1,31 @@
 const portfolioData = {
   name: "Rahul Lynel D'Souza",
-  role: "Senior DevOps / Site Reliability Engineer",
+  role: "DevOps Engineer",
+  valueProposition:
+    "Cloud platforms, CI/CD automation, security in delivery pipelines, datacenter operations, and operational reliability at scale.",
   summary:
-    "DevOps and Site Reliability Engineer with close to 9 years of experience owning production platforms across cloud and hybrid environments. I build stable systems, improve deployment reliability, and reduce operational toil through automation and strong engineering practices.",
+    "DevOps engineer with close to 9 years of experience across cloud, hybrid, and datacenter environments, focused on platform reliability, CI/CD automation, Kubernetes operations, and infrastructure as code.",
   profileStatement:
-    "I work best where reliability, scale, and delivery speed matter. My approach combines platform thinking, strong incident discipline, and practical automation to help engineering teams ship safely and move faster.",
+    "My strongest fit is building and operating delivery platforms where reliability, deployment speed, and security controls all matter at the same time.",
   profileHighlights: [
-    "Built and operated production systems with 99.9%+ uptime expectations.",
-    "Reduced MTTR, improved performance, and lowered infrastructure cost with measurable outcomes.",
-    "Designed CI/CD and platform workflows used by multi-team engineering organizations.",
-    "Hands-on across Kubernetes, cloud services, observability, infrastructure as code, and DevSecOps."
+    "Hands-on across Kubernetes, cloud services, CI/CD, observability, infrastructure as code, and platform automation.",
+    "Integrated security checks into delivery workflows using SAST, DAST, and dependency scanning practices.",
+    "Improved reliability, recovery speed, and infrastructure efficiency with measurable operational outcomes.",
+    "Interested in applying AI to observability, automation, anomaly detection, and operational decision support."
   ],
   profileFocus: [
     "Platform reliability and resilience",
     "Cloud and Kubernetes operations",
-    "CI/CD and developer platform enablement",
+    "Security integration in CI/CD pipelines",
     "Observability and incident response",
-    "AI-ready infrastructure and MLOps concepts"
+    "AI-assisted automation and anomaly detection"
   ],
   quickFacts: [
     "Abu Dhabi, United Arab Emirates",
-    "Almost 9 years in DevOps/SRE and infrastructure",
-    "Production operations across cloud and hybrid environments",
-    "Strong Kubernetes, CI/CD, observability, and IaC background",
-    "AI enthusiast focused on practical platform concepts"
+    "Almost 9 years in DevOps and infrastructure engineering",
+    "Production delivery across cloud and hybrid environments",
+    "Strong Kubernetes, CI/CD, observability, IaC, and platform operations background",
+    "Security-minded pipeline engineering with practical AI interest"
   ],
   achievements: [
     {
@@ -71,6 +73,26 @@ const portfolioData = {
       items: ["Azure", "AWS", "VMware vSphere", "KVM", "Linode"]
     },
     {
+      title: "Containers & Orchestration",
+      items: ["Docker", "Kubernetes", "Helm"]
+    },
+    {
+      title: "Automation & IaC",
+      items: ["Terraform", "Ansible", "GitOps"]
+    },
+    {
+      title: "CI/CD & Developer Platforms",
+      items: ["Azure DevOps", "GitLab", "GitHub", "Jenkins", "ArgoCD", "JFrog"]
+    },
+    {
+      title: "DevSecOps & Security",
+      items: ["Vault", "Trivy", "Aqua", "Snyk", "SonarQube", "Azure Key Vault", "CheckMarx"]
+    },
+    {
+      title: "Observability & Reliability",
+      items: ["Prometheus", "Grafana", "OpenTelemetry", "Azure Monitor", "Nagios", "OpenNMS", "Incident Response", "RCA"]
+    },
+    {
       title: "Azure Services",
       items: ["Azure Virtual Machines", "Azure Kubernetes Service (AKS)", "Azure Monitor", "Virtual Network (VNet)", "Azure Load Balancer", "Azure Key Vault", "Azure DevOps"]
     },
@@ -79,28 +101,8 @@ const portfolioData = {
       items: ["EC2", "VPC", "IAM", "S3", "CloudWatch", "Elastic Load Balancing (ELB)", "Route 53"]
     },
     {
-      title: "Containers & Orchestration",
-      items: ["Docker", "Kubernetes", "Helm"]
-    },
-    {
-      title: "CI/CD & Developer Platforms",
-      items: ["Azure DevOps", "GitLab", "GitHub", "Jenkins", "ArgoCD", "JFrog"]
-    },
-    {
-      title: "Observability & Reliability",
-      items: ["Prometheus", "Grafana", "OpenTelemetry", "Azure Monitor", "Nagios", "OpenNMS", "Incident Response", "RCA"]
-    },
-    {
-      title: "DevSecOps & Security",
-      items: ["Vault", "Trivy", "Aqua", "Snyk", "SonarQube", "Azure Key Vault", "CheckMarx"]
-    },
-    {
       title: "Operating Systems & Infrastructure",
       items: ["Linux (Ubuntu, RHEL)", "Windows", "Dell PowerEdge Servers", "HP Servers", "EMC SAN/NAS", "Cisco Catalyst"]
-    },
-    {
-      title: "Automation & IaC",
-      items: ["Terraform", "Ansible", "GitOps"]
     },
     {
       title: "AI-Aware Platform Thinking",
@@ -109,37 +111,28 @@ const portfolioData = {
   ],
   aiFocus: [
     {
-      title: "Practical MLOps Foundations",
-      details: "Understanding how model lifecycle and platform operations meet through reproducibility, versioning, deployment workflows, and reliability practices."
+      title: "AI for Observability",
+      details: "Exploring how AI can support anomaly detection, alert enrichment, and faster identification of operational issues."
     },
     {
-      title: "RAG Concepts",
-      details: "Focusing on retrieval fundamentals: chunking, embeddings, vector indexing, ranking quality, and evaluation feedback loops."
+      title: "AI-Assisted Automation",
+      details: "Looking at how AI can improve repetitive ops workflows, runbook guidance, and response efficiency without losing control and auditability."
     },
     {
-      title: "LLM Application Reliability",
-      details: "Learning how prompt design, orchestration, fallback handling, and telemetry support stable LLM-backed applications."
+      title: "LLM Platform Reliability",
+      details: "Learning how monitoring, guardrails, telemetry, and infrastructure design support dependable AI-backed services."
     },
     {
-      title: "Tokenization and Long Context",
-      details: "Studying tokenization behavior, context-window limits, and long-context strategies to balance quality, latency, and cost."
-    },
-    {
-      title: "MCP and Orchestration Patterns",
-      details: "Exploring Model Context Protocol and orchestration patterns for controlled, composable tool-enabled AI workflows."
-    },
-    {
-      title: "AI Guardrails and Operations",
-      details: "Applying SRE principles to AI systems through guardrails, monitoring, evaluation loops, and safer rollout practices."
+      title: "RAG, MCP, and Tooling Concepts",
+      details: "Building practical understanding of retrieval, model-tool orchestration, and how these systems can fit real operations environments."
     }
   ],
   learningTrack: [
-    "RAG architecture and retrieval quality",
+    "AI for observability and anomaly detection",
+    "Security-aware automation in delivery workflows",
     "LLM orchestration and request routing",
-    "Tokenization and context window management",
-    "Model Context Protocol (MCP)",
-    "Long-context design patterns",
-    "Observability for AI-backed services"
+    "RAG and Model Context Protocol (MCP)",
+    "Guardrails and observability for AI-backed services"
   ],
   employmentHistory: [
     {
@@ -334,6 +327,7 @@ const portfolioData = {
 };
 
 const quickFactsList = document.getElementById("quick-facts");
+const valuePropositionText = document.getElementById("value-proposition");
 const aboutText = document.getElementById("about-text");
 const profileStatement = document.getElementById("profile-statement");
 const profilePoints = document.getElementById("profile-points");
@@ -358,6 +352,10 @@ const socialLinkedIn = document.getElementById("social-linkedin");
 const socialCredly = document.getElementById("social-credly");
 const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
+
+if (valuePropositionText && portfolioData.valueProposition) {
+  valuePropositionText.textContent = portfolioData.valueProposition;
+}
 
 aboutText.textContent = portfolioData.summary;
 profileStatement.textContent = portfolioData.profileStatement;
@@ -406,9 +404,15 @@ portfolioData.achievements.forEach((achievement) => {
   achievementGrid.appendChild(card);
 });
 
-portfolioData.skillsets.forEach((skillGroup) => {
+const VISIBLE_SKILL_GROUPS = 6;
+
+portfolioData.skillsets.forEach((skillGroup, index) => {
   const card = document.createElement("article");
   card.className = "card";
+  if (index >= VISIBLE_SKILL_GROUPS) {
+    card.classList.add("is-extra-skill");
+    card.hidden = true;
+  }
   const title = document.createElement("h3");
   title.textContent = skillGroup.title;
   const list = document.createElement("ul");
@@ -422,6 +426,27 @@ portfolioData.skillsets.forEach((skillGroup) => {
   card.append(title, list);
   skillsGrid.appendChild(card);
 });
+
+if (portfolioData.skillsets.length > VISIBLE_SKILL_GROUPS) {
+  const skillsToggle = document.createElement("button");
+  skillsToggle.type = "button";
+  skillsToggle.className = "list-toggle";
+  skillsToggle.textContent = `Show more skills (+${portfolioData.skillsets.length - VISIBLE_SKILL_GROUPS})`;
+  skillsToggle.setAttribute("aria-expanded", "false");
+
+  skillsToggle.addEventListener("click", () => {
+    const isExpanded = skillsToggle.getAttribute("aria-expanded") === "true";
+    skillsGrid.querySelectorAll(".is-extra-skill").forEach((item) => {
+      item.hidden = isExpanded;
+    });
+    skillsToggle.setAttribute("aria-expanded", String(!isExpanded));
+    skillsToggle.textContent = isExpanded
+      ? `Show more skills (+${portfolioData.skillsets.length - VISIBLE_SKILL_GROUPS})`
+      : "Show fewer skills";
+  });
+
+  skillsGrid.insertAdjacentElement("afterend", skillsToggle);
+}
 
 portfolioData.skillLogos.forEach((item) => {
   const tile = document.createElement("article");
@@ -457,13 +482,41 @@ portfolioData.employmentHistory.forEach((job) => {
   const list = document.createElement("ul");
   list.className = "compact-list";
 
-  job.highlights.forEach((point) => {
+  const VISIBLE_HIGHLIGHTS = 4;
+
+  job.highlights.forEach((point, index) => {
     const li = document.createElement("li");
     li.textContent = point;
+    if (index >= VISIBLE_HIGHLIGHTS) {
+      li.classList.add("is-extra-point");
+      li.hidden = true;
+    }
     list.appendChild(li);
   });
 
   card.append(title, meta, list);
+
+  if (job.highlights.length > VISIBLE_HIGHLIGHTS) {
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "list-toggle";
+    toggle.textContent = `Show more (+${job.highlights.length - VISIBLE_HIGHLIGHTS})`;
+    toggle.setAttribute("aria-expanded", "false");
+
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      list.querySelectorAll(".is-extra-point").forEach((item) => {
+        item.hidden = isExpanded;
+      });
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+      toggle.textContent = isExpanded
+        ? `Show more (+${job.highlights.length - VISIBLE_HIGHLIGHTS})`
+        : "Show less";
+    });
+
+    card.appendChild(toggle);
+  }
+
   experienceGrid.appendChild(card);
 });
 
@@ -533,9 +586,15 @@ portfolioData.learningTrack.forEach((item) => {
   learningList.appendChild(li);
 });
 
-portfolioData.certifications.forEach((cert) => {
+const VISIBLE_CERTIFICATIONS = 6;
+
+portfolioData.certifications.forEach((cert, index) => {
   const card = document.createElement("article");
   card.className = "card";
+  if (index >= VISIBLE_CERTIFICATIONS) {
+    card.classList.add("is-extra-cert");
+    card.hidden = true;
+  }
   card.innerHTML = `
     <h3>${cert.name}</h3>
     <p>${cert.issuer}</p>
@@ -543,6 +602,27 @@ portfolioData.certifications.forEach((cert) => {
   `;
   certGrid.appendChild(card);
 });
+
+if (portfolioData.certifications.length > VISIBLE_CERTIFICATIONS) {
+  const certToggle = document.createElement("button");
+  certToggle.type = "button";
+  certToggle.className = "list-toggle";
+  certToggle.textContent = `Show more certifications (+${portfolioData.certifications.length - VISIBLE_CERTIFICATIONS})`;
+  certToggle.setAttribute("aria-expanded", "false");
+
+  certToggle.addEventListener("click", () => {
+    const isExpanded = certToggle.getAttribute("aria-expanded") === "true";
+    certGrid.querySelectorAll(".is-extra-cert").forEach((item) => {
+      item.hidden = isExpanded;
+    });
+    certToggle.setAttribute("aria-expanded", String(!isExpanded));
+    certToggle.textContent = isExpanded
+      ? `Show more certifications (+${portfolioData.certifications.length - VISIBLE_CERTIFICATIONS})`
+      : "Show fewer certifications";
+  });
+
+  certGrid.insertAdjacentElement("afterend", certToggle);
+}
 
 portfolioData.interests.forEach((interest) => {
   const li = document.createElement("li");
