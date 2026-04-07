@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>RAG vs Long-Context | Rahul Lynel D'Souza</title>
+  <meta name="description" content="RAG vs Long-Context: tradeoffs in precision, cost, freshness, and system design." />
+  <meta name="theme-color" content="#07131f" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260406d" />
+</head>
+<body>
+  <div class="background-glow glow-a"></div>
+  <div class="background-glow glow-b"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Rahul Lynel D'Souza</a>
+    <nav class="nav-links" id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero reveal" data-delay="0">
+      <p class="eyebrow">AI Notes</p>
+      <h1>RAG vs Long-Context</h1>
+      <p class="hero-description">If models can read more, do we still need retrieval?</p>
+      <div class="hero-cta">
+        <a class="btn btn-secondary" href="blogs.html">Back to All Posts</a>
+      </div>
+    </section>
+
+    <article class="panel post-content reveal" data-delay="120">
+      <p class="meta">Published on April 6, 2026</p>
+
+      <p>Lately, while trying to understand AI systems a little better, I have been stuck on one question: if models can now handle huge context windows, do we still need RAG?</p>
+
+      <p>At first glance, it feels like the answer should be no. If a model can take in a massive amount of text in one go, then why bother building retrieval pipelines, vector databases, chunking logic, ranking steps, and all the extra plumbing? Why not just throw everything into the prompt and let the model figure it out?</p>
+
+      <p>The more I read, though, the more I realize this is one of those things in AI that looks simple from far away and gets messier the closer you get. And that is exactly why it is interesting.</p>
+
+      <h2>The Appeal Of Long-Context</h2>
+      <p>Long-context feels like the more natural solution. Instead of creating a system that first searches for relevant information and then injects it into the prompt, you can just give the model a lot more raw material to work with.</p>
+
+      <p>This is becoming more feasible now because context windows have grown dramatically. What used to be impossible or impractical is starting to feel normal. The model can see much more than before.</p>
+
+      <p>From a beginner point of view, this feels elegant:</p>
+      <ul>
+        <li>Less architecture</li>
+        <li>Less orchestration</li>
+        <li>Less moving parts</li>
+        <li>Less fragile retrieval logic</li>
+      </ul>
+
+      <p>You do not have to obsess over whether your chunk size is correct, whether your embedding model is good enough, whether the retriever missed a crucial paragraph, or whether your re-ranker pushed the right passage down by mistake. You just give the model more source material and ask it to work.</p>
+
+      <h2>Why Long-Context Does Not Automatically Replace RAG</h2>
+      <p>Being able to stuff more text into a model is not the same as using that text efficiently. A larger context window gives you capacity, but capacity is not precision.</p>
+
+      <p>Imagine asking someone to find one important sentence in a room full of papers. Yes, technically the answer is somewhere in the room. But the existence of the room does not guarantee fast or reliable retrieval from inside it.</p>
+
+      <p>That is where RAG still has a strong case. RAG is basically a way of saying: do not make the model read the whole library every time. First narrow the search. Then show the model the few shelves that matter.</p>
+
+      <p>So the comparison is not old way versus new way. It is more like:</p>
+      <ul>
+        <li>Search first, then reason</li>
+        <li>Read more directly, then reason</li>
+      </ul>
+
+      <h2>Where Long-Context Feels Better</h2>
+      <p>Long-context reduces the feeling of fragmentation. RAG often depends on breaking documents into chunks. That is practical, but it can also distort meaning. Sometimes the answer is not in a single chunk. Sometimes the relationship between sections matters more than the sections themselves.</p>
+
+      <p>Long-context helps preserve flow, surrounding context, and structure. This matters when working with long contracts, technical design documents, books or research papers, code spread across multiple files, or meeting histories where nuance builds over time.</p>
+
+      <p>Sometimes the real answer is not a sentence. Sometimes it is a pattern. And patterns are easier to notice when more of the whole picture is visible.</p>
+
+      <h2>Where RAG Still Feels Necessary</h2>
+      <p>RAG solves focus extremely well. If your knowledge base contains thousands of documents, feeding all of them into a prompt is still unrealistic, expensive, or wasteful, even if the model supports a large window.</p>
+
+      <p>RAG helps when:</p>
+      <ul>
+        <li>The source corpus is large</li>
+        <li>Only a tiny portion is relevant per query</li>
+        <li>Freshness matters</li>
+        <li>Cost matters</li>
+        <li>Latency matters</li>
+        <li>You want stronger grounding in specific sources</li>
+      </ul>
+
+      <p>RAG is not only about fitting knowledge into context. It is also about bringing the right external knowledge at runtime. That is especially useful when information changes often.</p>
+
+      <h2>The Hidden Tradeoff: Simplicity vs Control</h2>
+      <p>Long-context looks simpler from the outside, but that simplicity can be deceptive. You may remove retrieval infrastructure, but now you are depending more heavily on the model to locate important parts buried inside a huge prompt.</p>
+
+      <p>RAG adds engineering complexity upfront, but gives you more control over what reaches the model.</p>
+
+      <h3>Long-Context</h3>
+      <ul>
+        <li>Simpler architecture</li>
+        <li>Better continuity across full documents</li>
+        <li>Fewer retrieval failure points</li>
+        <li>But potentially more tokens, more cost, and more noise</li>
+      </ul>
+
+      <h3>RAG</h3>
+      <ul>
+        <li>More system complexity</li>
+        <li>More tuning and moving parts</li>
+        <li>But more targeted context, lower token usage, and often better scalability</li>
+      </ul>
+
+      <h2>Bigger Context Does Not Mean Infinite Attention</h2>
+      <p>A long context window is like a bigger desk. Useful, yes. But a bigger desk does not automatically make you organized. Models may still perform unevenly when key information is buried in the middle of very long inputs.</p>
+
+      <p>Prompt design still matters. Document structure still matters. Sometimes filtering still matters. Long-context reduces one bottleneck, but it does not remove the need for good system design.</p>
+
+      <h2>Maybe The Real Answer Is Hybrid</h2>
+      <p>The more I read, the less I think this is a clean either-or debate. The practical future feels hybrid: use retrieval to narrow the search space, then use long-context to provide enough surrounding material to reason properly.</p>
+
+      <p>Instead of retrieving tiny isolated chunks, retrieve broader sections. Instead of dumping an entire database into context, retrieve the most relevant documents and let the long-context model handle the rest.</p>
+
+      <p>Because the real problem is not only how much can the model read. It is also what should it read, how much should it read, what is the cheapest reliable way to provide it, and how to keep it grounded in real sources.</p>
+
+      <h2>My Current Understanding</h2>
+      <p>My takeaway right now:</p>
+      <ul>
+        <li>Long-context makes AI systems feel more natural</li>
+        <li>RAG makes AI systems feel more disciplined</li>
+      </ul>
+
+      <p>Long-context is exciting because it reduces the need for aggressive chunking and complicated retrieval setups. RAG remains valuable because it keeps the model focused, cheaper, and connected to live external knowledge.</p>
+
+      <p>So no, I do not think long-context kills RAG. But it definitely changes the conversation. It pushes RAG from being the default answer to being a design choice and forces builders to ask a better question: do I need retrieval here, or do I just need enough context?</p>
+
+      <h2>Final Thought</h2>
+      <p>A lot of AI discussion online makes every improvement sound like a replacement. Bigger context window and RAG is dead. Better retrieval and fine-tuning is dead. New model release and everything before it is dead.</p>
+
+      <p>In practice, most things do not die that quickly. They become more situational. That is what RAG vs long-context feels like to me: not a winner-takes-all battle, but a shift in where the tradeoffs live.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Rahul Lynel D'Souza</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".reveal").forEach((el) => {
+      const delay = Number(el.getAttribute("data-delay") || 0);
+      el.style.setProperty("--delay", `${delay}ms`);
+    });
+  </script>
+</body>
+</html>
